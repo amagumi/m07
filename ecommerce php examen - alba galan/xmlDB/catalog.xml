@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<catalog>
+    <product id="1">
+        <idProd>1</idProd>
+        <prodName>pepino</prodName>
+        <qty>90</qty>
+        <price>0.15</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="2">
+        <idProd>2</idProd>
+        <prodName>manzana</prodName>
+        <qty>40</qty>
+        <price>0.25</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="3">
+        <idProd>3</idProd>
+        <prodName>uva</prodName>
+        <qty>970</qty>
+        <price>0.05</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="4">
+        <idProd>4</idProd>
+        <prodName>pera</prodName>
+        <qty>100</qty>
+        <price>0.15</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="5">
+        <idProd>5</idProd>
+        <prodName>pimiento</prodName>
+        <qty>70</qty>
+        <price>0.35</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="6">
+        <idProd>6</idProd>
+        <prodName>pi&#xF1;a</prodName>
+        <qty>30</qty>
+        <price>0.55</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="7">
+        <idProd>7</idProd>
+        <prodName>zanahoria</prodName>
+        <qty>300</qty>
+        <price>0.15</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="8">
+        <idProd>8</idProd>
+        <prodName>seta</prodName>
+        <qty>530</qty>
+        <price>0.05</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="9">
+        <idProd>9</idProd>
+        <prodName>naranja</prodName>
+        <qty>260</qty>
+        <price>0.35</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="10">
+        <idProd>10</idProd>
+        <prodName>sandia</prodName>
+        <qty>20</qty>
+        <price>0.70</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="11">
+        <idProd>11</idProd>
+        <prodName>cebolla</prodName>
+        <qty>480</qty>
+        <price>0.25</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+    <product id="12">
+        <idProd>12</idProd>
+        <prodName>apio</prodName>
+        <qty>240</qty>
+        <price>0.15</price>
+        <prodCurrency>
+            <currency>EU</currency>
+        </prodCurrency>
+    </product>
+</catalog>
