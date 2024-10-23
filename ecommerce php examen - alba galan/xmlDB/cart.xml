@@ -9,11 +9,31 @@
         <qty>20</qty>
     </productItem>
     <productItem>
+        <idProd>3</idProd>
+        <qty>50</qty>
+    </productItem>
+    <productItem>
+        <idProd>4</idProd>
+        <qty>10</qty>
+    </productItem>
+    <productItem>
         <idProd>5</idProd>
+        <qty>15</qty>
+    </productItem>
+    <productItem>
+        <idProd>7</idProd>
         <qty>10</qty>
     </productItem>
     <productItem>
         <idProd>12</idProd>
         <qty>10</qty>
+    </productItem>
+    <productItem>
+        <idProd>9</idProd>
+        <qty>4</qty>
+    </productItem>
+    <productItem>
+        <idProd>10</idProd>
+        <qty>4</qty>
     </productItem>
 </cart>

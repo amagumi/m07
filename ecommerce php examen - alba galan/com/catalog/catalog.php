@@ -31,6 +31,9 @@ function productExists($idProd, $qty)
 
 
 
+//function crear catalogo
+////////////////////////////////////////////////////////////////////////
+
 function getCatalog()
 {
 
@@ -48,6 +51,9 @@ function getCatalog()
 }
 
 
+
+//function crear producto
+////////////////////////////////////////////////////////////////////////
 
 function productRegister($idProd, $prodName, $qty, $price)
 {
@@ -73,4 +79,67 @@ function productRegister($idProd, $prodName, $qty, $price)
     $catalog->asXML('xmlDB/catalog.xml');
 
     echo $catalog;
+}
+
+
+
+//function ver catalogo
+////////////////////////////////////////////////////////////////////////
+
+function viewCatalog()
+{
+    $catalog = 'xmlDB/catalog.xml';
+
+    // Cargar el archivo catalog.xml
+    $productFinder = simplexml_load_file($catalog);
+
+    // Verificar si hay productos en el catálogo
+    if (count($productFinder->product) > 0) {
+        foreach ($productFinder->product as $product) {
+            // Mostrar los detalles de cada producto
+            echo "ID: " . $product->idProd . "<br>";
+            echo "Nombre: " . $product->prodName . "<br>";
+            echo "Precio: " . $product->price . "€<br>";
+            echo "Stock: " . $product->qty . " ud.<br>";
+            echo "<hr>"; // Separador entre productos
+        }
+    } else {
+        echo "No hay productos en el catálogo.";
+    }
+}
+
+
+
+//function update catalogo
+////////////////////////////////////////////////////////////////////////
+
+function updateCatalog($id, $qty)
+{
+    // Cargar el carrito y el catálogo
+    $cart = simplexml_load_file('xmlDB/cart.xml');
+    $catalog = simplexml_load_file('xmlDB/catalog.xml');
+
+    // Control de stock en el catálogo
+    if (count($catalog->product) > 0 && count($cart->productItem) > 0) {
+
+        // Buscar el producto en el catálogo por ID
+        foreach ($catalog->product as $product) {
+            if ($id == (int)$product->idProd) {
+                // Verificar si hay suficiente stock
+                if ($qty <= (int)$product->qty) {
+                    // Restar la cantidad comprada del stock disponible en el catálogo
+                    $newStock = (int)$product->qty - $qty;
+                    $product->qty = $newStock;
+
+                    // Actualizar el archivo XML del catálogo
+                    $catalog->asXML('xmlDB/catalog.xml');
+                    echo "Stock actualizado para el producto con ID $id: quedan $newStock unidades.<br>";
+                } else {
+                    echo "Stock insuficiente para el producto con ID $id.<br>";
+                }
+            }
+        }
+    } else {
+        echo "No hay productos en el catálogo o en el carrito.";
+    }
 }
