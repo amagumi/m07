@@ -1,5 +1,30 @@
 <?php
 
+
+class cart
+{
+    private $idProduct;
+    private $quantityProduct;
+    private $priceProduct;
+
+
+
+    public function __construct($idProduct, $quantityProduct)
+    {
+        $this->name = $name;
+        $this->age = $age;
+        $this->contacts = [];
+    }
+}
+
+
+
+
+
+
+
+
+
 //function add to cart
 ////////////////////////////////////////////////////////////////////////
 

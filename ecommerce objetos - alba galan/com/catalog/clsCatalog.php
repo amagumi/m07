@@ -1,5 +1,68 @@
 <?php
 
+class clsCatalog
+{
+    //propiedad de catalog que almacena productos, por eso es un array
+    private $products = [];
+
+    public function __construct()
+    {
+        $this->products = [];
+    }
+
+
+
+    private function loadFromXML($file)
+    {
+        if (file_exists($file)) {
+            $catalogXML = simplexml_load_file($file);
+            foreach ($catalogXML->product as $product) {
+                $createProduct = new clsProduct((int)$product->idProd, (string)$product->prodName, (float)$product->price);
+                $this->addProduct($createProduct);
+            }
+        }
+    }
+
+    // agregar productos al catálogo
+    public function addProduct(clsProduct $product)
+    {
+        $this->products[$product->getIdProduct()] = $product;
+    }
+
+    //obtener un producto por ID
+    public function getProductById($id)
+    {
+        return $this->products[$id] ?? null;
+    }
+
+    // mostrar todos los productos
+    public function showProducts()
+    {
+        if (empty($this->products)) {
+            echo "No hay productos en el catálogo.<br>";
+            return;
+        }
+
+        foreach ($this->products as $product) {
+            echo "ID: " . $product->getIdProduct() . "<br>";
+            echo "Nombre: " . $product->getProdName() . "<br>";
+            echo "Precio: " . $product->getPrice() . "€<br>";
+            echo "<hr>"; // Separador entre productos
+        }
+    }
+}
+
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
 // la funcion productExists abre el archivo xml de los productos 
 // y recorre cada nodo buscando el producto deseado (bucle) 
 
