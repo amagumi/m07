@@ -3,13 +3,15 @@ class clsProduct
 {
     private $idProduct;
     private $prodName;
+    private $quantity;
     private $price;
 
 
-    public function __construct($idProduct, $prodName, $price)
+    public function __construct($idProduct, $prodName, $quantity, $price)
     {
         $this->idProduct = $idProduct;
         $this->prodName = $prodName;
+        $this->quantity = $quantity;
         $this->price = $price;
     }
 
@@ -24,6 +26,11 @@ class clsProduct
     public function getProdName()
     {
         return $this->prodName;
+    }
+
+    public function getQuantity()
+    {
+        return $this->quantity;
     }
 
     public function getPrice()
@@ -41,6 +48,11 @@ class clsProduct
     public function setProdName($prodName)
     {
         $this->prodName = $prodName;
+    }
+
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
     }
 
     public function setPrice($price)

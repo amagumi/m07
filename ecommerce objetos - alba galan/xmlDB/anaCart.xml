@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<cart>
+    <productItem>
+        <idProd>3</idProd>
+        <prodName>uva</prodName>
+        <qty>5</qty>
+        <price>0.75</price>
+    </productItem>
+    <productItem>
+        <idProd>7</idProd>
+        <prodName>zanahoria</prodName>
+        <qty>4</qty>
+        <price>0.60</price>
+    </productItem>
+    <product_item>
+        <idProd>15</idProd>
+        <prodName>pi&#xF1;a</prodName>
+        <qty>5</qty>
+        <price>0.35</price>
+    </product_item>
+    <product_item>
+        <idProd>13</idProd>
+        <prodName>enoki</prodName>
+        <qty>50</qty>
+        <price>2.15</price>
+    </product_item>
+    <product_item>
+        <idProd>6</idProd>
+        <prodName>casta&#xF1;a</prodName>
+        <qty>5</qty>
+        <price>0.55</price>
+    </product_item>
+</cart>

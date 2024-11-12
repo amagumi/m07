@@ -1,16 +1,75 @@
 <?php
+require_once 'com/cart/clsCart.php';
+require_once 'com/catalog/clsCatalog.php';
+require_once 'com/product/clsProduct.php';
+require_once 'com/user/clsUser.php';
+require_once 'com/user/clsUsers.php';
 
-include_once("com/cart/cart.php");
-include_once("com/user/users.php");
-include_once("com/catalog/catalog.php");
-require_once 'cart.php';
-require_once 'product.php';
-require_once 'catalog.php';
-
+$users = new clsUsers();
 $catalog = new clsCatalog();
-$product1 = new clsProduct(1, "aguacate", 1.50);
-$catalog->addProduct($product1);
+
+
+// users
+
+////////////////////////////////////////////////////////////
+
+$user = $users->login(2); // se introduce el dni del usuario por parametro y se almacena en la variable user
+$username = $user->getName(); // se recoge el nombre del objeto user mediante un getter
+
+$cart = new clsCart($username, $catalog);
+$cart->addProduct(6, 5);
+
+// $cart->showCart();
+
+
+
+// añadir productos al catálogo
+
+////////////////////////////////////////////////////////////
+
+// $product = new clsProduct(16, "alcaparra", 1500, 0.75);
+// $catalog->registerProduct($product);
+
+
+// $catalog->showCatalog();
+
+
+// añadir productos al xml catalgoo
+////////////////////////////////////////////////////////////
+
+// productRegister(15, 'piña', 1300, 2.00);
+
+
+
+
+
+
+
+
+/* 
+$users = new clsUsers();
+
+// crear productos
+
+
+// crear usuario
+$user1 = new clsUser(123, 'juan', 'spain', 'pass1');
+
+//añadir productos al catalogo
+
+
+// añadir usuario 
+$users->addUser($user1);
+
+
+$users->showUsers();
+
+*/
+
 // $catalog->exportToXML('xmlDB/catalog.xml');
+
+
+/////////////////////////////////////////////////////////////////////////////////////
 
 //echo '<a href="tienda.php">Ir a la tienda</a>';
 
@@ -24,7 +83,7 @@ $catalog->addProduct($product1);
 
 // getCatalog();
 
-// productRegister(12, 'apio', 240, 0.15);
+
 
 // productExists(4, 20);
 

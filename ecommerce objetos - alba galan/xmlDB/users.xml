@@ -5,26 +5,17 @@
         <name>juan</name>
         <country>italia</country>
         <password>123</password>
-        <user_currency>
-            <currency>EU</currency>
-        </user_currency>
     </user>
     <user>
         <dni>2</dni>
         <name>ana</name>
         <country>espana</country>
         <password>123</password>
-        <user_currency>
-            <currency>EU</currency>
-        </user_currency>
     </user>
     <user>
         <dni>3</dni>
         <name>asier</name>
         <country>chile</country>
         <password>123</password>
-        <user_currency>
-            <currency>EU</currency>
-        </user_currency>
     </user>
 </users>
