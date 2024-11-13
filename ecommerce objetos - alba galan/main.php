@@ -15,15 +15,36 @@ $catalog = new clsCatalog();
 
 $user = $users->login(2); // se introduce el dni del usuario por parametro y se almacena en la variable user
 $username = $user->getName(); // se recoge el nombre del objeto user mediante un getter
-
 $cart = new clsCart($username, $catalog);
-$cart->addProduct(6, 5);
-
-// $cart->showCart();
 
 
+$action = $_GET["action"];
 
-// añadir productos al catálogo
+$productId = isset($_GET['productId']) ? (int)$_GET['productId'] : null;
+$quantity = isset($_GET['quantity']) ? (int)$_GET['quantity'] : 1;
+
+switch ($action) {
+
+    case 'addProduct':
+        $cart->addProduct($productId, $quantity);
+        break;
+
+    case 'removeProduct':
+        $cart->removeFromCart($username, 6);
+        break;
+
+    case 'showCart':
+        $cart->showCart();
+        break;
+
+    case 'showCatalog':
+        $catalog->showCatalog();
+        break;
+}
+
+
+
+// añadir productos al array de productos productsArr
 
 ////////////////////////////////////////////////////////////
 
@@ -31,7 +52,7 @@ $cart->addProduct(6, 5);
 // $catalog->registerProduct($product);
 
 
-// $catalog->showCatalog();
+// 
 
 
 // añadir productos al xml catalgoo

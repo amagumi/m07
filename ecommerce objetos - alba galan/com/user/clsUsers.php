@@ -41,7 +41,7 @@ class clsUsers
     // get dni del user
     public function fetchDni($dni)
     {
-        foreach ($this->usersArr as $user) { //utiliza el getter del dni de la clase clsuser
+        foreach ($this->usersArr as $user) { // utiliza el getter del dni de la clase clsuser
             if ($dni == $user->getDni()) {
                 return $user;
             }

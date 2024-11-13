@@ -33,7 +33,7 @@
     <product>
         <idProd>6</idProd>
         <prodName>casta&#xF1;a</prodName>
-        <qty>285</qty>
+        <qty>275</qty>
         <price>0.55</price>
     </product>
     <product>
@@ -63,19 +63,19 @@
     <product>
         <idProd>11</idProd>
         <prodName>cebolla</prodName>
-        <qty>4800</qty>
+        <qty>4775</qty>
         <price>0.25</price>
     </product>
     <product>
         <idProd>12</idProd>
         <prodName>apio</prodName>
-        <qty>2370</qty>
+        <qty>2345</qty>
         <price>0.15</price>
     </product>
     <product>
         <idProd>13</idProd>
         <prodName>enoki</prodName>
-        <qty>2450</qty>
+        <qty>2430</qty>
         <price>2.15</price>
     </product>
     <product>

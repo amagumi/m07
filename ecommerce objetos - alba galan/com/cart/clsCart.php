@@ -24,27 +24,32 @@ class clsCart
     }
 
 
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // añadir producto al cart xml
+
     public function addProduct($idProd, $qty)
     {
         //$p es un producto
-        $p = $this->catalog->getProduct($idProd);
+        $p = $this->catalog->getProduct($idProd); // getProduct retorna un objeto de clase product
         $qtyCatalog = $p->getQuantity();
         $newQtyCatalog = $qtyCatalog - $qty;
+        $priceCatalog = $p->getPrice();
+        $totalPriceProduct = $qty * $priceCatalog; // multiplica el precio ud * qty para reflejarlo en el carrito
 
         if ($qtyCatalog > $qty) {
             echo "stock disponible, se añade al carro " . "<br>";
 
-            $cartItem = $this->product->addChild('product_item');
+            $cartItem = $this->product->addChild('productItem');
 
             $cartItem->addChild('idProd', $p->getIdProduct());
             $cartItem->addChild('prodName', $p->getProdName());
             $cartItem->addChild('qty', $qty);
-            $cartItem->addChild('price', $p->getPrice());
+            $cartItem->addChild('price', $totalPriceProduct);
 
             $this->saveCart();
 
-            // se settea la nueva cantidad
+            // se settea el nuevo stock en el objeto producto en el productsArr
             $p->setQuantity($newQtyCatalog);
             $this->updateCatalog($idProd, $newQtyCatalog);
         } else {
@@ -59,9 +64,9 @@ class clsCart
         $this->product->asXML('xmlDB/' . $this->username . 'Cart.xml');
     }
 
-
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // mostrar el carrito en formato xml 
+
     public function showCart()
     {
         $cartFile = 'xmlDB/' . $this->username . 'Cart.xml';
@@ -75,9 +80,10 @@ class clsCart
     }
 
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // actualiza el stock en el xml de catalogo
 
-
-    function updateCatalog($idProd, $newQtyCatalog)
+    public function updateCatalog($idProd, $newQtyCatalog)
     {
         $catalog = simplexml_load_file('xmlDB/catalog.xml');
 
@@ -89,9 +95,24 @@ class clsCart
             $catalog->asXML('xmlDB/catalog.xml'); // sobreescribe los resultados
         }
     }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // eliminar un producto del carrito
+
+    public function removeFromCart($username, $idProd)
+    {
+        $xml = simplexml_load_file('xmlDB/' . $username . 'Cart.xml');
+        // ruta del xml de dentro, se quiere buscar el idprod 
+        foreach ($xml->xpath("/cart/productItem[idProd=$idProd]") as $idProd) {
+            // echo 'encontrado' . "<br>";
+            unset($idProd[0]); //unsettea el nodo cuando lo encuentra
+            // echo 'borrsdsdsdaado';
+        }
+        // echo 'borrado';
+        $xml->asXML('xmlDB/' . $username . 'Cart.xml'); // sobreescribe los resultados
+    }
 }
-
-
 
 
 
